@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "d3-array": "^2.12.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "firebase": "^8.3.3",
+    "firebase-admin": "^9.6.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "node-localstorage": "^2.1.6",
+    "node-mailer": "^0.1.1",
+    "nodejs-pptx": "^1.0.1",
+    "nodemailer": "^6.6.0",
+    "nodemon": "^2.0.7",
+    "office-document-properties": "^1.1.0",
+    "office-script": "^1.7.0",
+    "officeparser": "^2.2.2",
+    "pptxgenjs": "^3.5.0",
+    "random-number": "0.0.9",
+    "razorpay": "^2.0.6",
+    "shuffle-array": "^1.0.1"
+  }
+}

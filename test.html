@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <!-- <form action="/shuffle-ppt/uploadfile" enctype="multipart/form-data" method="POST">  -->
+        <input type="file" name="myFile" id="file" />
+        <input type="submit" id="sendbtn" value="Upload a file" />
+    <!-- </form> -->
+        
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById("sendbtn").addEventListener("click", async () => {  
+            var img = document.getElementById("file").files
+            console.log(img)
+            const formData = await new FormData()
+            await formData.append("myFile", img[0])
+            await formData.append("shuffle",1)
+            axios.post("/shuffle-ppt/uploadfile", formData).then((res) => { console.log(res) })
+        })
+       
+    </script>
+</body>
+
+</html>
