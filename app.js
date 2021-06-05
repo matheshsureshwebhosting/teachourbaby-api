@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 
 app.use(cookie())
 
-app.use(cors({ origin: 'http://168.119.159.183:3000' })) //http://localhost:3000
+app.use(cors({ origin: 'https://trachourbaby.herokuapp.com/' })) //http://localhost:3000
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/test.html")
