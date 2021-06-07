@@ -10,18 +10,18 @@ var nodemailer = require('nodemailer');
 const port = 4500 || process.env.PORT
 
 var transporter = nodemailer.createTransport({
-    host: "smtp.zoho.in",    
+    host: "smtp.zoho.in",
     secure: true,
     port: 465,
     auth: {
-        user: "apply@flyfarcareers.com", 
-        pass: "Bangalore@333", 
+        user: "apply@flyfarcareers.com",
+        pass: "Bangalore@333",
     },
     tls: {
         rejectUnauthorized: false
     }
 
-  });
+});
 
 
 
@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 
 app.use(cookie())
 
-app.use(cors({ origin: 'https://trachourbaby.herokuapp.com/' })) //http://localhost:3000
+app.use(cors({ origin: 'http://localhost:3000' })) //http://localhost:3000
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/test.html")
@@ -135,7 +135,7 @@ app.post('/shuffle-ppt/uploadfile', upload.single('myFile'), async (req, res) =>
 app.post('/contact/send', async (req, res) => {
     const subject = req.body.subject
     const description = req.body.description
-    
+
     console.log(subject);
     console.log(description);
 
@@ -146,14 +146,14 @@ app.post('/contact/send', async (req, res) => {
         text: description
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log(error);
+            console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+            console.log('Email sent: ' + info.response);
         }
-      });
     });
+});
 
 
 
@@ -166,6 +166,6 @@ app.use("/referral", require("./routers/referral"))
 app.use("/forgot", require("./routers/forgot"))
 app.use("/shuffle", require("./routers/shuffle"))
 app.use("/recentuploads", require("./routers/recentuploads"))
-app.use("/admin",require("./routers/admin"))
+app.use("/admin", require("./routers/admin"))
 
 app.listen(port, () => { console.log(`App Running on http://localhost:${port}`) })

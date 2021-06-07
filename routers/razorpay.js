@@ -24,12 +24,15 @@ router.post("/pay", async (req, res) => {
             receipt: "su001",
             payment_capture: '1'
         };
+        console.log(params);
         await instance.orders.create(params).then((data) => {
+            console.log(data);
             res.send({ "sub": data, "status": "success" });
         }).catch((error) => {
             res.send({ "sub": error, "status": "failed" });
         })
     } catch (error) {
+        console.log(error);
         return res.status(401).send(error)
     }
 
